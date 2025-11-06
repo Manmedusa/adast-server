@@ -1,0 +1,5 @@
+node_modules/
+keys.db
+jwt_private.pem
+jwt_public.pem
+.env
