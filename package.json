@@ -4,9 +4,10 @@
   "description": "Minimalni server za jednokratne ključeve i JWT",
   "private": true,
   "main": "index.js",
+  "engines": { "node": "20.x" },
   "license": "MIT",
   "scripts": {
-    "start": "node db_init.js && node index.js",
+    "start": "node -e \"try{require('fs').accessSync(process.env.DB_PATH||'./keys.db')}catch(e){require('./db_init.js')} ; require('./index.js')\"",
     "dev": "nodemon index.js",
     "genkeys": "node gen_keys.js",
     "initdb": "node db_init.js"
